@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Pagination from "../components/pagination";
-import "../IssuesPage.css"
+import Pagination from "../../components/pagination";
+import "./IssuesPage.css"
 
 const IssuesPage = () => {
   const [issues, setIssues] = useState([]);
@@ -11,7 +11,7 @@ const IssuesPage = () => {
   useEffect(() => {
     // Fetch data from the GitHub API
     const fetchData = async () => {
-      const response = await fetch("https://api.github.com/repos/octocat/Spoon-Knife/issues");
+      const response = await fetch("https://api.github.com/repos/facebook/react/issues");
       const data = await response.json();
       setIssues(data);
     };
@@ -26,9 +26,11 @@ const IssuesPage = () => {
   const paginate = pageNumber => setCurrentPage(pageNumber);
 
   return (
+    <>
+   
+    <h1 className="issue-header">GitHub Issues</h1>
     <div className="issue-page">
-      <h1 className="issue-header">GitHub Issues</h1>
-      <h4>Use the REST API to view and manage issues, including issue assignees, comments, labels, and milestones.</h4>
+      <h4 style={{margin: "30px"}}>Use the REST API to view and manage issues, including issue assignees, comments, labels, and milestones.</h4>
       <table className="issue-body">
         <thead className="issue-title">
           <tr>
@@ -57,6 +59,7 @@ const IssuesPage = () => {
        paginate={paginate}
 />
     </div>
+     </>
   );
 };
 
