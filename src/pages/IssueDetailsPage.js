@@ -1,12 +1,18 @@
-import React from 'react'
-import "../pages/issues/IssuesPage.css"
+import React from "react";
+import "../pages/issues/IssuesPage.css";
+import { Link } from "react-router-dom";
 
 const IssueDetailsPage = () => {
-    return (
-        <div className='issueDetailsPage' >
-            Details of the selected issue has to be shown
-        </div>
-    )
-}
+  return (
+    
+    <div>
+      <p>The details of the selected issue have to be shown</p>
 
-export default IssueDetailsPage
+      <div>
+        <Link to="/"> Go back</Link>
+      </div>
+    </div>
+  );
+};
+
+export default IssueDetailsPage;
