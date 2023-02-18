@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Pagination from "../../components/pagination";
 import "./IssuesPage.css"
 
-const IssuesPage = () => {
+const LandingPage = () => {
   const [issues, setIssues] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [issuesPerPage] = useState(10);
@@ -30,7 +31,7 @@ const IssuesPage = () => {
    
     <h1 className="issue-header">GitHub Issues</h1>
     <div className="issue-page">
-      <h4 style={{margin: "30px"}}>Use the REST API to view and manage issues, including issue assignees, comments, labels, and milestones.</h4>
+      <h4 style={{marginTop: "50px"}}>Use the REST API to view and manage issues, including issue assignees, comments, labels, and milestones.</h4>
       <table className="issue-body">
         <thead className="issue-title">
           <tr>
@@ -44,7 +45,7 @@ const IssuesPage = () => {
           {currentIssues.map((issue, index) => (
             <tr  key={index} >
               <td className="issue-num">{index + 1}</td>
-              <td className="issue-description">{issue.title}</td>
+      <td className="issue-description"> <Link to="/issueId" style={{textDecoration:"none", color:"#282c34"}} >{issue.title} </Link></td>
               <td className="issue-meta">{issue.user.login}</td>
               <td className="issue-date">{issue.created_at}</td>
             </tr>
@@ -63,4 +64,4 @@ const IssuesPage = () => {
   );
 };
 
-export default IssuesPage;
+export default LandingPage;

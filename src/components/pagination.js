@@ -11,21 +11,21 @@ const Pagination = ({ issuesPerPage, totalIssues, paginate, currentPage, setCurr
     return (
  
       <div className='paginationRow'>
-        <button   disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>Prev</button>  
+        <button style={{   cursor: "pointer"}}  disabled={currentPage === 1} onClick={() => setCurrentPage(currentPage - 1)}>Prev</button>  
       <ul className='pagination'>
         {pageNumbers.map((number) => (
           <span
             key={number} 
           >
-            <a href="!#" onClick={() => paginate(number)} className={currentPage === number ? "active" : ""}>
+            <span onClick={() => paginate(number)} className={currentPage === number ? "active" : ""}>
          
             
              {number}
-            </a>
+            </span>
           </span>
         ))}
       </ul>
-      <button style={{marginLeft:"2rem"}} disabled={currentPage === Math.ceil(totalIssues / issuesPerPage)} onClick={() => setCurrentPage(currentPage + 1)}>Next</button>
+      <button style={{marginLeft:"2rem", cursor:"pointer"}} disabled={currentPage === Math.ceil(totalIssues / issuesPerPage)} onClick={() => setCurrentPage(currentPage + 1)}>Next</button>
     </div>
     );
   };

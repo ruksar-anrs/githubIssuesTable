@@ -1,10 +1,16 @@
 import './App.css';
-import IssuesPage from './pages/issues/issuesPage';
+import { Routes, Route } from "react-router-dom"
+import LandingPage from './pages/issues/LandingPage';
+import IssueDetailsPage from './pages/IssueDetailsPage';
 
 function App() {
   return (
     <div className="App">
-        <IssuesPage />
+       <Routes>
+        <Route path="/" element={ <LandingPage/> } />
+        <Route path="/issueId" element={ <IssueDetailsPage/> } />
+       
+      </Routes>
     </div>
   );
 }
