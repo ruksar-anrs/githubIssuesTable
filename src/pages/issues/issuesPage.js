@@ -36,7 +36,7 @@ const IssuesPage = () => {
           <tr>
             <th className="serial-num">SI No.</th>
             <th className="title">Title</th>
-            <th style={{width: "15%"}}>Author</th>
+            <th className="meta">Author</th>
             <th className="date">Date</th>
           </tr>
         </thead>
